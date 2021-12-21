@@ -1,0 +1,103 @@
+<html lang ="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="wdith=device-width, height=device-height, initual-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Nightnergy Happy Game</title>
+        <style>
+            h1{
+                margin-top: -400;
+                margin-left: 1200;
+            }
+
+            #container{
+                height: 700px;
+                width: 1500px;
+                outline: 3px solid black;
+                position: relative;
+            }
+            #grass{
+                position: absolute;
+                margin-top: 375;
+                height: 325px;
+                width: 1500px;
+                background: url("assets/A/grass.png");
+                background-repeat:no-repeat;
+                background-size: cover;
+            }
+            #sky{
+                position: absolute;
+                height: 700px;
+                width: 1500px;
+                background:url("assets/A/sky.png");
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            #Tree{
+                position: absolute;
+                height: 360;
+                width: 270;
+                margin-top: 15;
+                margin-left: 100;
+                background: url("assets/A/tree.png");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            #guy{
+                margin-top: 75;
+                position: absolute;
+                height: 300px;
+                width: 300px;
+                left: 0;
+                margin-left: 300;
+                top: 0;
+                background: url("assets/A/ron.png");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="container">
+            <div id="sky"></div>
+            <div id="grass"></div>
+            <div id="sun"></div>
+            <div id="Tree"></div>
+            <div id="guy"></div>
+        </div> 
+
+
+        <h1>My happy game :)</h1>
+        <p>First game on Nightergy! use arrows to walk around!</p>
+
+        <script>
+            var guy=document.getElementById('guy');
+            var container=document.getElementById('container');
+
+            var guyLeft = 0;
+            var guyTop = 0;
+            var speed = 6;
+
+            function anim(e){
+                
+                if(e.keyCode==39){
+                    guyLeft += speed;
+                    guy.style.left = guyLeft + 'px';
+                }
+                if(e.keyCode==38){
+                    guyTop -= speed;
+                    guy.style.top = guyTop + 'px';
+                }
+                if(e.keyCode==37){
+                    guyLeft -= speed;
+                    guy.style.left = guyLeft + 'px';
+                }           
+                if(e.keyCode==40){
+                    guyTop += speed;
+                    guy.style.top = guyTop + 'px';
+                }    
+            }
+            document.onkeydown = anim;
+        </script>
+    </body>
